@@ -19,7 +19,10 @@ class ModelLoader:
         Args:
             model_path: Path to the pickled model file
         """
-        self.model_path = Path(model_path)
+        # Use absolute path relative to this file to ensure model is found
+        # backend/app/models/model_loader.py -> backend/spam_model.pkl
+        base_dir = Path(__file__).resolve().parent.parent.parent
+        self.model_path = base_dir / model_path
         self._model = None
         
     def load_model(self):
