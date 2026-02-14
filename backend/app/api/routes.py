@@ -62,5 +62,6 @@ async def health_check():
     
     return {
         "status": "healthy",
-        "model_loaded": model_loader.is_loaded()
+        "model_loaded": model_loader.is_loaded(),
+        "model_error": model_loader.load_error if hasattr(model_loader, 'load_error') else None
     }
