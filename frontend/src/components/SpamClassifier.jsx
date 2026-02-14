@@ -22,7 +22,9 @@ function SpamClassifier() {
         setResult(null)
 
         try {
-            const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000'
+            // In production (Vercel), use relative path which is handled by vercel.json rewrites
+            // In development, default to localhost:8000
+            const API_URL = import.meta.env.VITE_API_URL || (import.meta.env.PROD ? '' : 'http://localhost:8000')
             const response = await fetch(`${API_URL}/api/predict`, {
                 method: 'POST',
                 headers: {
