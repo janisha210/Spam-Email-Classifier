@@ -2,9 +2,12 @@
     margin-top: var(--spacing-xl);
     padding: var(--spacing-xl);
     border-radius: var(--radius-xl);
-    border: 2px solid;
+    border-radius: var(--radius-xl);
+    border: 1px solid var(--glass-border);
     position: relative;
     overflow: hidden;
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
 }
 
 .result-card::before {
@@ -26,13 +29,15 @@
 }
 
 .result-card.spam {
-    background: var(--color-danger-bg);
-    border-color: var(--color-danger-border);
+    border-color: rgba(244, 63, 94, 0.5);
+    background: linear-gradient(180deg, rgba(244, 63, 94, 0.1) 0%, rgba(0, 0, 0, 0.3) 100%);
+    box-shadow: 0 0 30px rgba(244, 63, 94, 0.15);
 }
 
 .result-card.safe {
-    background: var(--color-success-bg);
-    border-color: var(--color-success-border);
+    border-color: rgba(16, 185, 129, 0.5);
+    background: linear-gradient(180deg, rgba(16, 185, 129, 0.1) 0%, rgba(0, 0, 0, 0.3) 100%);
+    box-shadow: 0 0 30px rgba(16, 185, 129, 0.15);
 }
 
 .result-header {
@@ -56,11 +61,13 @@
     background: var(--color-danger);
     color: white;
     animation: pulse 2s ease-in-out infinite;
+    box-shadow: var(--shadow-glow-danger);
 }
 
 .result-card.safe .result-icon {
     background: var(--color-success);
     color: white;
+    box-shadow: var(--shadow-glow-success);
 }
 
 .result-icon svg {

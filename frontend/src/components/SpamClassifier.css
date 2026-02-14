@@ -6,10 +6,12 @@
 
 .classifier-card {
     background: var(--color-bg-card);
-    border: 1px solid var(--color-border);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
     border-radius: var(--radius-2xl);
     padding: var(--spacing-2xl);
-    box-shadow: var(--shadow-xl);
+    box-shadow: var(--shadow-lg);
     animation: fadeIn 0.6s ease-out;
     position: relative;
     overflow: hidden;
@@ -21,9 +23,13 @@
     top: 0;
     left: 0;
     right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, var(--color-accent-primary), var(--color-accent-secondary));
-    border-radius: var(--radius-2xl) var(--radius-2xl) 0 0;
+    height: 2px;
+    background: linear-gradient(90deg,
+            transparent,
+            var(--color-accent-cyan),
+            var(--color-accent-primary),
+            var(--color-accent-pink),
+            transparent);
 }
 
 .card-header {
@@ -32,14 +38,15 @@
 }
 
 .card-title {
-    font-size: var(--font-size-3xl);
+    font-size: 3rem;
     font-weight: 800;
-    background: linear-gradient(135deg, var(--color-text-primary), var(--color-text-secondary));
+    background: linear-gradient(135deg, #fff 0%, var(--color-text-secondary) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     margin-bottom: var(--spacing-sm);
-    letter-spacing: -1px;
+    letter-spacing: -2px;
+    text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
 .card-description {
@@ -73,12 +80,13 @@
 .email-textarea {
     width: 100%;
     padding: var(--spacing-md);
-    background: var(--color-bg-secondary);
-    border: 2px solid var(--color-border);
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--glass-border);
     border-radius: var(--radius-lg);
     color: var(--color-text-primary);
-    font-family: var(--font-family);
-    font-size: var(--font-size-base);
+    font-family: 'JetBrains Mono', 'Fira Code', monospace;
+    /* Tech font */
+    font-size: 0.95rem;
     line-height: 1.6;
     resize: vertical;
     transition: all var(--transition-base);
@@ -87,8 +95,8 @@
 .email-textarea:focus {
     outline: none;
     border-color: var(--color-accent-primary);
-    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
-    background: var(--color-bg-tertiary);
+    background: rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.1);
 }
 
 .email-textarea:disabled {
@@ -183,9 +191,10 @@
 }
 
 .btn-primary {
-    background: linear-gradient(135deg, var(--color-accent-primary), var(--color-accent-secondary));
+    background: linear-gradient(135deg, var(--color-accent-primary), var(--color-accent-primary-hover));
     color: white;
-    box-shadow: var(--shadow-md);
+    box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .btn-primary:hover:not(:disabled) {
@@ -194,7 +203,7 @@
 }
 
 .btn-primary:active:not(:disabled) {
-    transform: translateY(0);
+    transform: translateY(1px);
 }
 
 .btn-primary:disabled {
@@ -249,12 +258,13 @@
 }
 
 .info-card {
-    background: var(--color-bg-card);
-    border: 1px solid var(--color-border);
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
     border-radius: var(--radius-xl);
     padding: var(--spacing-xl);
     text-align: center;
-    transition: all var(--transition-base);
+    transition: all var(--transition-smooth);
 }
 
 .info-card:hover {
@@ -264,15 +274,17 @@
 }
 
 .info-icon {
-    width: 48px;
-    height: 48px;
+    width: 56px;
+    height: 56px;
     margin: 0 auto var(--spacing-md);
-    background: linear-gradient(135deg, var(--color-accent-primary), var(--color-accent-secondary));
-    border-radius: var(--radius-lg);
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(6, 182, 212, 0.2));
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
+    color: var(--color-text-primary);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
 }
 
 .info-icon svg {
